@@ -10,53 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as EventsEventIdRouteImport } from './routes/events/$eventId'
-import { Route as EventsAddIndexRouteImport } from './routes/events/add/index'
+import { Route as WydarzeniaEventIdRouteImport } from './routes/wydarzenia/$eventId'
+import { Route as WydarzeniaDodajIndexRouteImport } from './routes/wydarzenia/dodaj/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EventsEventIdRoute = EventsEventIdRouteImport.update({
-  id: '/events/$eventId',
-  path: '/events/$eventId',
+const WydarzeniaEventIdRoute = WydarzeniaEventIdRouteImport.update({
+  id: '/wydarzenia/$eventId',
+  path: '/wydarzenia/$eventId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EventsAddIndexRoute = EventsAddIndexRouteImport.update({
-  id: '/events/add/',
-  path: '/events/add/',
+const WydarzeniaDodajIndexRoute = WydarzeniaDodajIndexRouteImport.update({
+  id: '/wydarzenia/dodaj/',
+  path: '/wydarzenia/dodaj/',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/events/$eventId': typeof EventsEventIdRoute
-  '/events/add': typeof EventsAddIndexRoute
+  '/wydarzenia/$eventId': typeof WydarzeniaEventIdRoute
+  '/wydarzenia/dodaj': typeof WydarzeniaDodajIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/events/$eventId': typeof EventsEventIdRoute
-  '/events/add': typeof EventsAddIndexRoute
+  '/wydarzenia/$eventId': typeof WydarzeniaEventIdRoute
+  '/wydarzenia/dodaj': typeof WydarzeniaDodajIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/events/$eventId': typeof EventsEventIdRoute
-  '/events/add/': typeof EventsAddIndexRoute
+  '/wydarzenia/$eventId': typeof WydarzeniaEventIdRoute
+  '/wydarzenia/dodaj/': typeof WydarzeniaDodajIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/events/$eventId' | '/events/add'
+  fullPaths: '/' | '/wydarzenia/$eventId' | '/wydarzenia/dodaj'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/events/$eventId' | '/events/add'
-  id: '__root__' | '/' | '/events/$eventId' | '/events/add/'
+  to: '/' | '/wydarzenia/$eventId' | '/wydarzenia/dodaj'
+  id: '__root__' | '/' | '/wydarzenia/$eventId' | '/wydarzenia/dodaj/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  EventsEventIdRoute: typeof EventsEventIdRoute
-  EventsAddIndexRoute: typeof EventsAddIndexRoute
+  WydarzeniaEventIdRoute: typeof WydarzeniaEventIdRoute
+  WydarzeniaDodajIndexRoute: typeof WydarzeniaDodajIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,18 +68,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/events/$eventId': {
-      id: '/events/$eventId'
-      path: '/events/$eventId'
-      fullPath: '/events/$eventId'
-      preLoaderRoute: typeof EventsEventIdRouteImport
+    '/wydarzenia/$eventId': {
+      id: '/wydarzenia/$eventId'
+      path: '/wydarzenia/$eventId'
+      fullPath: '/wydarzenia/$eventId'
+      preLoaderRoute: typeof WydarzeniaEventIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/events/add/': {
-      id: '/events/add/'
-      path: '/events/add'
-      fullPath: '/events/add'
-      preLoaderRoute: typeof EventsAddIndexRouteImport
+    '/wydarzenia/dodaj/': {
+      id: '/wydarzenia/dodaj/'
+      path: '/wydarzenia/dodaj'
+      fullPath: '/wydarzenia/dodaj'
+      preLoaderRoute: typeof WydarzeniaDodajIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -87,8 +87,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  EventsEventIdRoute: EventsEventIdRoute,
-  EventsAddIndexRoute: EventsAddIndexRoute,
+  WydarzeniaEventIdRoute: WydarzeniaEventIdRoute,
+  WydarzeniaDodajIndexRoute: WydarzeniaDodajIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
