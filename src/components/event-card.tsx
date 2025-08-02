@@ -24,6 +24,7 @@ import {
 
 interface EventCardProps {
   event: Event;
+  standalone?: boolean; // Optional prop to adjust card for details view
 }
 
 // Icon mapper for event types
@@ -43,7 +44,15 @@ const eventTypeColorMapper: Record<
   health: "success",
 };
 
-export function EventCard({ event }: Readonly<EventCardProps>) {
+const baseCardStyles = {
+  height: "100%",
+  display: "flex",
+  width: "100%",
+  flexDirection: "column",
+  textAlign: "left",
+};
+
+export function EventCard({ event, standalone }: Readonly<EventCardProps>) {
   const formatDate = (date: Date | string) => {
     const dateObj = typeof date === "string" ? new Date(date) : date;
     return dateObj.toLocaleDateString("pl-PL", {
@@ -58,19 +67,20 @@ export function EventCard({ event }: Readonly<EventCardProps>) {
 
   return (
     <Card
-      sx={{
-        maxWidth: 400,
-        height: "100%",
-        display: "flex",
-        width: "100%",
-        flexDirection: "column",
-        transition: "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
-        "&:hover": {
-          transform: "translateY(-4px)",
-          boxShadow: 4,
-        },
-        textAlign: "left",
-      }}
+      sx={
+        standalone
+          ? baseCardStyles
+          : {
+              ...baseCardStyles,
+              maxWidth: 400,
+              transition:
+                "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: 4,
+              },
+            }
+      }
     >
       <Box sx={{ position: "relative" }}>
         <CardMedia
@@ -105,14 +115,16 @@ export function EventCard({ event }: Readonly<EventCardProps>) {
         >
           {event.title}
         </Typography>
+        <Typography variant='body2' sx={{ mb: 2 }}>
+          {event.description}
+        </Typography>
         <Box sx={{ mt: "auto" }}>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1, gap: 1 }}>
-            <CalendarToday fontSize='small' />
+            <CalendarToday fontSize='small' sx={{ color: "primary.main" }} />
             <Typography variant='body2' color='text.secondary'>
               {formatDate(event.date)}
             </Typography>
           </Box>
-          <Typography variant='body2'>{event.description}</Typography>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
             <Box
               component='a'
@@ -130,7 +142,7 @@ export function EventCard({ event }: Readonly<EventCardProps>) {
                 gap: 1,
               }}
             >
-              <Phone fontSize='small' />
+              <Phone fontSize='small' sx={{ color: "primary.main" }} />
               <Typography variant='body2' color='text.secondary'>
                 {event.phone}
               </Typography>
@@ -153,7 +165,7 @@ export function EventCard({ event }: Readonly<EventCardProps>) {
                 gap: 1,
               }}
             >
-              <Email fontSize='small' />
+              <Email fontSize='small' sx={{ color: "primary.main" }} />
               <Typography
                 variant='body2'
                 color='text.secondary'
@@ -174,7 +186,7 @@ export function EventCard({ event }: Readonly<EventCardProps>) {
                 gap: 1,
               }}
             >
-              <LocationOn fontSize='small' />
+              <LocationOn fontSize='small' sx={{ color: "primary.main" }} />
               <Typography variant='body2' color='text.secondary'>
                 {event.location}
               </Typography>
