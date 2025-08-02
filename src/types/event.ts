@@ -2,9 +2,12 @@ export interface Event {
   id: string;
   title: string;
   date: Date;
-  desctription: string;
+  description: string;
   image: string;
   type: EventType;
+  phone: string;
+  email: string;
+  location: string;
 }
 
 export type EventType = "sport" | "culture" | "health";

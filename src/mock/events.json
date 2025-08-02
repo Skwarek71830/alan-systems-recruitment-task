@@ -5,7 +5,10 @@
     "date": "2025-09-15T08:00:00.000Z",
     "desctription": "Największy maraton w Polsce. Trasa prowadzi przez najpiękniejsze miejsca Warszawy, w tym Stare Miasto, Łazienki Królewskie i bulwary wiślane.",
     "image": "https://placehold.co/600x400",
-    "type": "sport"
+    "type": "sport",
+    "phone": "+48 22 123 45 67",
+    "email": "maraton@warszawa.pl",
+    "location": "Plac Defilad 1, 00-901 Warszawa"
   },
   {
     "id": "2",
@@ -13,7 +16,10 @@
     "date": "2025-09-22T19:00:00.000Z",
     "desctription": "Jeden z najważniejszych festiwali filmowych w Polsce. Prezentacja najnowszych polskich produkcji filmowych oraz spotkania z twórcami.",
     "image": "https://placehold.co/600x400",
-    "type": "culture"
+    "type": "culture",
+    "phone": "+48 58 678 90 12",
+    "email": "festiwal@gdynia.pl",
+    "location": "Centrum Kultury Filmowej, ul. Świętojańska 15, 81-368 Gdynia"
   },
   {
     "id": "3",
@@ -21,7 +27,10 @@
     "date": "2025-08-10T10:00:00.000Z",
     "desctription": "Eksperci z dziedziny medycyny i dietetyki podzielą się najnowszymi trendami w zdrowym odżywianiu i aktywności fizycznej.",
     "image": "https://placehold.co/600x400",
-    "type": "health"
+    "type": "health",
+    "phone": "+48 12 345 67 89",
+    "email": "zdrowie@konferencja.pl",
+    "location": "Hotel Marriott, Al. Jerozolimskie 65/79, 00-697 Warszawa"
   },
   {
     "id": "4",
@@ -29,7 +38,10 @@
     "date": "2025-07-25T14:00:00.000Z",
     "desctription": "Międzynarodowy turniej tenisowy z udziałem najlepszych tenisistów świata. Emocjonujące mecze na kortach ziemnych.",
     "image": "https://placehold.co/600x400",
-    "type": "sport"
+    "type": "sport",
+    "phone": "+48 22 987 65 43",
+    "email": "warsaw.open@tennis.pl",
+    "location": "Mera Tennis Club, ul. Koszykowa 34, 00-553 Warszawa"
   },
   {
     "id": "5",
@@ -37,7 +49,10 @@
     "date": "2025-08-05T12:00:00.000Z",
     "desctription": "Retrospektywa dzieł najwybitniejszych polskich artystów współczesnych. Malarstwo, rzeźba i instalacje multimedialne.",
     "image": "https://placehold.co/600x400",
-    "type": "culture"
+    "type": "culture",
+    "phone": "+48 22 456 78 90",
+    "email": "wystawa@muzeum.pl",
+    "location": "Muzeum Sztuki Nowoczesnej, ul. Pańska 3, 00-124 Warszawa"
   },
   {
     "id": "6",
@@ -45,7 +60,10 @@
     "date": "2025-08-18T16:00:00.000Z",
     "desctription": "Praktyczne warsztaty z technik medytacji i uważności. Nauka radzenia sobie ze stresem i poprawy koncentracji.",
     "image": "https://placehold.co/600x400",
-    "type": "health"
+    "type": "health",
+    "phone": "+48 71 234 56 78",
+    "email": "medytacja@mindfulness.pl",
+    "location": "Centrum Mindfulness, ul. Świdnicka 23, 50-068 Wrocław"
   },
   {
     "id": "7",
@@ -53,7 +71,10 @@
     "date": "2025-10-12T18:00:00.000Z",
     "desctription": "Finałowy turniej mistrzostw świata w siatkówce mężczyzn. Reprezentacja Polski walczy o złoty medal na własnym terenie.",
     "image": "https://placehold.co/600x400",
-    "type": "sport"
+    "type": "sport",
+    "phone": "+48 61 876 54 32",
+    "email": "ms.siatka@poland.pl",
+    "location": "Tauron Arena, ul. Wystawowa 1, 51-618 Wrocław"
   },
   {
     "id": "8",
@@ -61,7 +82,10 @@
     "date": "2025-09-08T20:00:00.000Z",
     "desctription": "Wyjątkowy koncert muzyki klasycznej w wykonaniu Orkiestry Filharmonii Narodowej. W programie dzieła Chopina i Pendereckiego.",
     "image": "https://placehold.co/600x400",
-    "type": "culture"
+    "type": "culture",
+    "phone": "+48 22 551 71 11",
+    "email": "koncert@filharmonia.pl",
+    "location": "Filharmonia Narodowa, ul. Jasna 5, 00-013 Warszawa"
   },
   {
     "id": "9",
@@ -69,7 +93,10 @@
     "date": "2025-08-30T09:00:00.000Z",
     "desctription": "Bezpłatne badania profilaktyczne, konsultacje z lekarzami specjalistami oraz zajęcia fitness na świeżym powietrzu.",
     "image": "https://placehold.co/600x400",
-    "type": "health"
+    "type": "health",
+    "phone": "+48 12 678 90 12",
+    "email": "dzien.zdrowia@krakow.pl",
+    "location": "Park Jordana, al. 3 Maja, 30-062 Kraków"
   },
   {
     "id": "10",
@@ -77,6 +104,9 @@
     "date": "2025-08-28T22:00:00.000Z",
     "desctription": "Trzydniowy festiwal muzyki elektronicznej z udziałem najlepszych DJ-ów z całego świata. Sceny indoor i outdoor.",
     "image": "https://placehold.co/600x400",
-    "type": "culture"
+    "type": "culture",
+    "phone": "+48 58 321 98 76",
+    "email": "electronic@festiwal.pl",
+    "location": "Hala Expo, ul. Żaglowa 11, 80-560 Gdańsk"
   }
 ]
