@@ -1,12 +1,17 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import useSWR from "swr";
-import "./App.css";
-import reactLogo from "./assets/react.svg";
-import { wait } from "./helpers/utils";
-import mockEvents from "./mock/events.json"; // Import mock data
+import "../App.css";
+import { wait } from "../helpers/utils";
+import mockEvents from "../mock/events.json"; // Import mock data
+import reactLogo from "../assets/react.svg";
 import viteLogo from "/vite.svg";
 
-function App() {
+export const Route = createFileRoute("/")({
+  component: Index,
+});
+
+function Index() {
   const [count, setCount] = useState(0);
   const { data: events, isLoading } = useSWR("/events", async () => {
     await wait(1000); // Simulate API response delay
@@ -39,5 +44,3 @@ function App() {
     </>
   );
 }
-
-export default App;
