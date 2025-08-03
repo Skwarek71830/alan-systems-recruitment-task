@@ -1,12 +1,10 @@
-import {
-  CalendarToday,
-  DirectionsRun,
-  Email,
-  LocalHospital,
-  LocationOn,
-  Palette,
-  Phone,
-} from "@mui/icons-material";
+import CalendarToday from "@mui/icons-material/CalendarToday";
+import DirectionsRun from "@mui/icons-material/DirectionsRun";
+import Email from "@mui/icons-material/Email";
+import LocalHospital from "@mui/icons-material/LocalHospital";
+import LocationOn from "@mui/icons-material/LocationOn";
+import Palette from "@mui/icons-material/Palette";
+import Phone from "@mui/icons-material/Phone";
 import {
   Box,
   Card,

@@ -1,4 +1,4 @@
-import { Add } from "@mui/icons-material";
+import Add from "@mui/icons-material/Add";
 import { Fab } from "@mui/material";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import useSWR from "swr";

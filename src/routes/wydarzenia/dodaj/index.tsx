@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Add, ArrowBack } from "@mui/icons-material";
+import Add from "@mui/icons-material/Add";
+import ArrowBack from "@mui/icons-material/ArrowBack";
 import {
   Box,
   Button,

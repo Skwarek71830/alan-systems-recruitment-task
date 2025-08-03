@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
@@ -11,4 +12,9 @@ export default defineConfig({
     }),
     react(),
   ],
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "vitest.setup.ts",
+  },
 });
