@@ -1,9 +1,25 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import mockEventsData from "../mock/events.json";
 import type { Event } from "../types/event";
 import { EventGrid } from "./event-grid";
-// Cast the imported JSON data to Event type (handling the desctription typo)
+
+// Mock the TanStack Router Link component - prevent error when it appears in dom during tests
+vi.mock("@tanstack/react-router", () => ({
+  Link: ({
+    children,
+    ...props
+  }: {
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <a {...props} href='/'>
+      {children}
+    </a>
+  ),
+}));
+
+// Cast the imported JSON data to Event type
 const mockEvents = mockEventsData as unknown as Event[];
 
 describe("EventGrid", () => {
@@ -68,17 +84,29 @@ describe("EventGrid", () => {
     it("should display all provided events", () => {
       render(<EventGrid isLoading={false} events={mockEvents} />);
 
-      // Check if all event cards are rendered
-      expect(screen.getByTestId("event-card-1")).toBeInTheDocument();
-      expect(screen.getByTestId("event-card-2")).toBeInTheDocument();
-      expect(screen.getByTestId("event-card-3")).toBeInTheDocument();
+      // Check if all event cards are rendered by mapping through mock events
+      mockEvents.forEach((_, index) => {
+        expect(screen.getByTestId(`event-card-${index}`)).toBeInTheDocument();
+      });
 
-      // Check if event titles are displayed
-      expect(screen.getByText("Maraton Warszawski 2025")).toBeInTheDocument();
-      expect(screen.getByText("Festiwal Filmowy w Gdyni")).toBeInTheDocument();
+      // Check if all event titles are displayed by mapping through mock events
+      mockEvents.forEach((event) => {
+        expect(screen.getByText(event.title)).toBeInTheDocument();
+      });
+    });
+
+    it("should not display loading skeletons when events are available", () => {
+      render(<EventGrid isLoading={false} events={mockEvents} />);
+
+      expect(screen.queryByTestId(/^skeleton-/)).not.toBeInTheDocument();
+    });
+
+    it('should not display "no events" message when events are available', () => {
+      render(<EventGrid isLoading={false} events={mockEvents} />);
+
       expect(
-        screen.getByText("Konferencja Zdrowego Stylu Życia")
-      ).toBeInTheDocument();
+        screen.queryByText("Nie znaleziono żadnych wydarzeń.")
+      ).not.toBeInTheDocument();
     });
   });
 });
