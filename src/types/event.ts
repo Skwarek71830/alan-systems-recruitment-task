@@ -1,5 +1,9 @@
-export interface Event {
+export interface Event extends EventDraft {
   id: string;
+}
+
+// EventDraft type - Event without id
+export interface EventDraft {
   title: string;
   date: Date;
   description: string;
