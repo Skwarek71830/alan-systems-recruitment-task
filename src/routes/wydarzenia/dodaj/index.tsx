@@ -15,7 +15,7 @@ import {
   Typography,
 } from "@mui/material";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 import { eventTypeTranslationMapping } from "../../../types/event";
 
@@ -67,6 +67,7 @@ function RouteComponent() {
 
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
@@ -164,26 +165,32 @@ function RouteComponent() {
               }}
             />
 
-            <FormControl fullWidth error={!!errors.type} required>
-              <InputLabel>Typ wydarzenia</InputLabel>
-              <Select
-                {...register("type")}
-                label='Typ wydarzenia'
-                sx={{ textAlign: "left" }}
-                defaultValue=''
-              >
-                {Object.entries(eventTypeTranslationMapping).map(
-                  ([key, label]) => (
-                    <MenuItem key={key} value={key}>
-                      {label}
-                    </MenuItem>
-                  )
-                )}
-              </Select>
-              {errors.type && (
-                <FormHelperText>{errors.type.message}</FormHelperText>
+            <Controller
+              name='type'
+              control={control}
+              render={({ field }) => (
+                <FormControl fullWidth error={!!errors.type} required>
+                  <InputLabel>Typ wydarzenia</InputLabel>
+                  <Select
+                    {...field}
+                    label='Typ wydarzenia'
+                    sx={{ textAlign: "left" }}
+                    value={field.value || ""}
+                  >
+                    {Object.entries(eventTypeTranslationMapping).map(
+                      ([key, label]) => (
+                        <MenuItem key={key} value={key}>
+                          {label}
+                        </MenuItem>
+                      )
+                    )}
+                  </Select>
+                  {errors.type && (
+                    <FormHelperText>{errors.type.message}</FormHelperText>
+                  )}
+                </FormControl>
               )}
-            </FormControl>
+            />
 
             <TextField
               {...register("desctription")}
