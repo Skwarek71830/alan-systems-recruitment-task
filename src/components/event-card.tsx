@@ -15,6 +15,7 @@ import {
   Chip,
   Typography,
 } from "@mui/material";
+import { Link } from "@tanstack/react-router";
 import React from "react";
 import {
   eventTypeTranslationMapping,
@@ -82,39 +83,53 @@ export function EventCard({ event, standalone }: Readonly<EventCardProps>) {
             }
       }
     >
-      <Box sx={{ position: "relative" }}>
-        <CardMedia
-          component='img'
-          height='250'
-          image={event.image}
-          alt={event.title}
-          sx={{ objectFit: "cover" }}
-        />
-        <Box
-          sx={{
-            position: "absolute",
-            top: 8,
-            left: 8,
-          }}
-        >
-          <Chip
-            icon={eventTypeIconMapper[event.type]}
-            label={eventTypeTranslationMapping[event.type]}
-            color={eventTypeColorMapper[event.type]}
-            size='small'
+      <Link
+        to='/wydarzenia/$eventId'
+        params={{ eventId: event.id }}
+        disabled={standalone}
+        style={{ textDecoration: "none" }}
+      >
+        <Box sx={{ position: "relative" }}>
+          <CardMedia
+            component='img'
+            height='250'
+            image={event.image}
+            alt={event.title}
+            sx={{ objectFit: "cover" }}
           />
+          <Box
+            sx={{
+              position: "absolute",
+              top: 8,
+              left: 8,
+            }}
+          >
+            <Chip
+              icon={eventTypeIconMapper[event.type]}
+              label={eventTypeTranslationMapping[event.type]}
+              color={eventTypeColorMapper[event.type]}
+              size='small'
+            />
+          </Box>
         </Box>
-      </Box>
+      </Link>
       <CardContent
         sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}
       >
-        <Typography
-          variant='h6'
-          component='h2'
-          sx={{ fontWeight: "bold", mb: 2 }}
+        <Link
+          to='/wydarzenia/$eventId'
+          params={{ eventId: event.id }}
+          disabled={standalone}
+          style={{ textDecoration: "none" }}
         >
-          {event.title}
-        </Typography>
+          <Typography
+            variant='h6'
+            component='h2'
+            sx={{ fontWeight: "bold", mb: 2 }}
+          >
+            {event.title}
+          </Typography>
+        </Link>
         <Typography variant='body2' sx={{ mb: 2 }}>
           {event.description}
         </Typography>

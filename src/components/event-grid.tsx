@@ -1,5 +1,4 @@
 import { Grid, Skeleton, Typography } from "@mui/material";
-import { Link } from "@tanstack/react-router";
 import type { Event } from "../types/event";
 import { EventCard } from "./event-card";
 
@@ -53,13 +52,7 @@ export function EventGrid({ events, isLoading }: Readonly<EventGridProps>) {
           sx={{ width: "100%" }}
           key={event.id}
         >
-          <Link
-            to='/wydarzenia/$eventId'
-            params={{ eventId: event.id }}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <EventCard event={event} />
-          </Link>
+          <EventCard event={event} />
         </Grid>
       ))}
     </Grid>
