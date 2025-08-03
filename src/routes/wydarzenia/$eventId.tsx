@@ -21,7 +21,7 @@ function RouteComponent() {
 
   const { data: event, isLoading } = useSWR(`/events/${eventId}`, async () => {
     await wait(1000); // Simulate API response delay
-    //mock data from the mocks folder - normally it would be fetched from an API using "GET" method to the {API URL}/events endpoint - i would use the fetcher fn from utils.ts
+    //mock data from the mocks folder - normally it would be fetched from an API using "GET" method to the {API URL}/events/{eventId} endpoint - i would use the fetcher fn from helpers/utils.ts
     return mockEvents.find((event) => event.id === eventId) as
       | Event
       | undefined;
@@ -30,6 +30,17 @@ function RouteComponent() {
   if (isLoading) {
     return (
       <Container maxWidth='md' sx={{ py: 4 }}>
+        <Box sx={{ mb: 3 }}>
+          <Button
+            component={Link}
+            to='/'
+            startIcon={<ArrowBack />}
+            variant='outlined'
+            sx={{ mb: 2 }}
+          >
+            Powrót do listy wydarzeń
+          </Button>
+        </Box>
         <Box
           display='flex'
           justifyContent='center'

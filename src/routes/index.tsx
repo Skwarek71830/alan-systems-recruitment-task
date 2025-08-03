@@ -15,12 +15,12 @@ export const Route = createFileRoute("/")({
 function Index() {
   const { data: events, isLoading } = useSWR("/events", async () => {
     await wait(1000); // Simulate API response delay
-    //mock data from the mocks folder - normally it would be fetched from an API using "GET" method to the {API URL}/events endpoint - i would use the fetcher fn from utils.ts
+    //mock data from the mocks folder - normally it would be fetched from an API using "GET" method to the {API URL}/events endpoint - i would use the fetcher fn from helpers/utils.ts
     return mockEvents as unknown as Event[];
   });
 
   return (
-    <div style={{ position: "relative" }}>
+    <div>
       <EventGrid events={events} isLoading={isLoading} />
       <Link to='/wydarzenia/dodaj' style={{ textDecoration: "none" }}>
         <Fab
