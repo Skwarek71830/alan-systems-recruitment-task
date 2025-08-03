@@ -56,6 +56,15 @@ function RouteComponent() {
   if (!event) {
     return (
       <Container maxWidth='md' sx={{ py: 4 }}>
+        <Button
+          component={Link}
+          to='/'
+          startIcon={<ArrowBack />}
+          variant='outlined'
+          sx={{ mb: 2 }}
+        >
+          Powrót do listy wydarzeń
+        </Button>
         <Box
           display='flex'
           justifyContent='center'
